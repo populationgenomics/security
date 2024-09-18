@@ -1,0 +1,11 @@
+repos:
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.7.3
+    hooks:
+    -   id: pip-audit
+        args: ["-r", "requirements.txt", "-r", "requirements-dev.txt"]
+
+ci:
+  # Leave pip-audit to only run locally and not in CI
+  # pre-commit.ci does not allow network calls
+  skip: [pip-audit]
