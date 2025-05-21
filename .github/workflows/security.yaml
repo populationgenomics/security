@@ -17,11 +17,12 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca #v6.0.1
+        with:
+          activate-environment: true
 
       - name: Install project dependencies
         run: |
           uv sync
-          source .venv/bin/activate
 
       - uses: pypa/gh-action-pip-audit@1220774d901786e6f652ae159f7b6bc8fea6d266 #v1.1.0
         with:

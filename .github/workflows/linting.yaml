@@ -16,11 +16,12 @@ jobs:
 
       - name: Install uv
         uses: astral-sh/setup-uv@6b9c6063abd6010835644d4c2e1bef4cf5cd0fca #v6.0.1
+        with:
+          activate-environment: true
 
       - name: Install project dependencies
         run: |
           uv sync
-          source .venv/bin/activate
 
       - name: Run pre-commit
         run: uv run pre-commit run --all-files
