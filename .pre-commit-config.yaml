@@ -17,10 +17,26 @@ repos:
     rev: v0.38.0
     hooks:
       - id: markdownlint
-        args: ["--config", ".markdownlint.json"]
+        args: ['--config', '.markdownlint.json']
 
   - repo: https://github.com/populationgenomics/pre-commits
-    rev: "v0.1.3"
+    rev: 'v0.1.3'
     hooks:
       - id: cpg-id-checker
-        args: ["--extra-pattern", 'TOB\d+']
+        args: ['--extra-pattern', 'TOB\d+']
+
+  - repo: https://github.com/pypa/pip-audit
+    rev: v2.9.0
+    hooks:
+      - id: pip-audit
+        args: ['--local']
+
+  - repo: https://github.com/woodruffw/zizmor-pre-commit
+    rev: v1.5.2
+    hooks:
+      - id: zizmor
+
+ci:
+  # Leave pip-audit to only run locally and not in CI
+  # pre-commit.ci does not allow network calls
+  skip: [pip-audit]
