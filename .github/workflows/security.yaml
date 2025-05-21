@@ -10,8 +10,6 @@ jobs:
   pip-audit:
     runs-on: ubuntu-latest
     name: Pip Audit
-    permissions:
-      contents: read
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
         with:
@@ -34,7 +32,6 @@ jobs:
     name: Zizmor Scan
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       security-events: write
     steps:
       - name: Checkout repository
